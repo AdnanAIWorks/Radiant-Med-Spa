@@ -1,15 +1,14 @@
 @echo off
-title Radiant Med Spa - GitHub Authentication & Push
-color 0A
+title "Radiant Med Spa - GitHub Authentication and Push"
 echo ================================================================
-echo         RADIANT MED SPA - GITHUB AUTHENTICATION ^& PUSH
+echo        RADIANT MED SPA - GITHUB AUTHENTICATION AND PUSH
 echo ================================================================
 echo.
 echo Target Repository: https://github.com/AdnanAIWorks/Radiant-Med-Spa.git
 echo Local Directory:   E:\Med Spa Website
 echo Branch:            main
 echo.
-echo Starting interactive GitHub push...
+echo Starting GitHub push...
 echo Your web browser may open to authorize GitHub.
 echo If prompted, click 'Authorize git-ecosystem' to confirm.
 echo.
