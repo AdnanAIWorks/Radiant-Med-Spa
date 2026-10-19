@@ -1,0 +1,9 @@
+# Radiant Med Spa — Houston, Texas
+# Robots.txt for search engine indexing
+User-agent: *
+Allow: /
+Disallow: /scratch/
+Disallow: /drafts/
+
+# Sitemap location
+Sitemap: https://www.radiantmedspahouston.com/sitemap.xml

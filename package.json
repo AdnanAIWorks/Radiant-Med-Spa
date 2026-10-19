@@ -1,0 +1,18 @@
+{
+  "name": "radiant-med-spa-houston",
+  "version": "1.0.0",
+  "description": "Radiant Med Spa — Houston, Texas Clinic Website & Digital Concierge Platform",
+  "scripts": {
+    "dev": "powershell -ExecutionPolicy Bypass -File .\\serve.ps1 -Port 8080",
+    "start": "powershell -ExecutionPolicy Bypass -File .\\serve.ps1 -Port 8080",
+    "serve": "powershell -ExecutionPolicy Bypass -File .\\serve.ps1 -Port 8080"
+  },
+  "keywords": [
+    "med-spa",
+    "houston",
+    "aesthetic-medicine",
+    "skincare"
+  ],
+  "author": "Radiant Med Spa",
+  "license": "UNLICENSED"
+}
