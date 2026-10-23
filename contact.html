@@ -158,11 +158,11 @@
   <!-- Main Contact Body -->
   <section class="section bg-ivory">
     <div class="container">
-      <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem;">
+      <div class="contact-grid">
         
         <!-- Contact Form Column -->
         <div>
-          <div style="background: #FFFFFF; border: 1px solid #E8E2D6; border-radius: 16px; padding: 2.75rem; box-shadow: var(--shadow-card);">
+          <div class="responsive-card-padding" style="background: #FFFFFF; border: 1px solid #E8E2D6; border-radius: 16px; box-shadow: var(--shadow-card);">
             <h3 style="font-family: var(--font-serif-heading); font-size: 1.6rem; margin-bottom: 0.5rem;">Send an Inquiry</h3>
             <p style="font-size: 0.95rem; color: #59635E; margin-bottom: 2rem;">
               Fill out this form and our medical aesthetic coordinator will reply within 2 business hours.
@@ -171,7 +171,7 @@
             <form id="contact-page-form" onsubmit="handleContactSubmit(event)">
               <!-- Anti-spam Honeypot Field -->
               <input type="text" name="hp_field" id="contact-hp" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;">
+              <div class="responsive-form-row">
                 <div class="form-group">
                   <label for="contact-name" class="form-label">Full Name *</label>
                   <input type="text" id="contact-name" class="form-control" placeholder="e.g. Rachel Adams" required>

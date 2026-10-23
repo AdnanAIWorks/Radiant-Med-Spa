@@ -139,15 +139,15 @@ function renderServiceDetail() {
           <span style="color: #1C221F; font-weight: 600;" aria-current="page">${service.title}</span>
         </nav>
 
-        <div style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 4rem; align-items: center;">
+        <div class="service-detail-hero-grid">
           <div>
             <span class="badge badge-gold" style="margin-bottom: 1rem;">${service.categoryName}</span>
-            <h1 style="font-size: clamp(2.4rem, 4.5vw, 3.6rem); margin-bottom: 0.75rem;">${service.title}</h1>
-            <p style="font-size: 1.25rem; font-family: var(--font-serif-display); font-style: italic; color: #758A78; margin-bottom: 1.5rem;">${service.subtitle}</p>
+            <h1 style="font-size: clamp(2rem, 5.5vw, 3.6rem); margin-bottom: 0.75rem;">${service.title}</h1>
+            <p style="font-size: 1.15rem; font-family: var(--font-serif-display); font-style: italic; color: #758A78; margin-bottom: 1.5rem;">${service.subtitle}</p>
             <p class="text-lead" style="margin-bottom: 2rem;">${service.shortDesc}</p>
 
             <!-- Quick Metadata Pills -->
-            <div style="display: flex; flex-wrap: wrap; gap: 1.75rem; margin-bottom: 2.5rem; padding: 1.25rem 0; border-top: 1px solid #E8E2D6; border-bottom: 1px solid #E8E2D6;">
+            <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 2.25rem; padding: 1.25rem 0; border-top: 1px solid #E8E2D6; border-bottom: 1px solid #E8E2D6;">
               <div>
                 <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: #808A85; display: block;">Duration</span>
                 <strong style="color: #1C221F; font-size: 1rem;">${service.duration}</strong>
@@ -163,7 +163,7 @@ function renderServiceDetail() {
             </div>
 
             <!-- Booking CTAs -->
-            <div style="display: flex; gap: 1.25rem; align-items: center; flex-wrap: wrap;">
+            <div class="btn-stack-mobile">
               <a href="booking.html?service=${service.id}" class="btn btn-gold btn-lg">
                 Book a Consultation for This Treatment
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
@@ -186,7 +186,7 @@ function renderServiceDetail() {
     <!-- Main Clinical Body -->
     <div class="section bg-ivory">
       <div class="container">
-        <div style="display: grid; grid-template-columns: 1.35fr 0.65fr; gap: 4.5rem;">
+        <div class="service-detail-body-grid">
           
           <!-- Clinical Narrative Column -->
           <div>
@@ -219,7 +219,7 @@ function renderServiceDetail() {
             </div>
 
             <!-- 5 & 6. Preparation & Aftercare Protocol -->
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 3.5rem;">
+            <div class="prep-aftercare-grid">
               <div style="background: #FFFFFF; padding: 1.75rem; border-radius: 12px; border: 1px solid #E8E2D6; box-shadow: var(--shadow-subtle);">
                 <h4 style="font-family: var(--font-serif-heading); font-size: 1.25rem; margin-bottom: 0.75rem; color: #1C221F;">5. General Preparation</h4>
                 <p style="font-size: 0.925rem; line-height: 1.7; color: #59635E;">${service.preparationInfo || 'Avoid direct sun tanning and harsh exfoliants for 48 hours prior to your session.'}</p>
@@ -244,7 +244,7 @@ function renderServiceDetail() {
 
           <!-- Sticky Sidebar Column -->
           <div>
-            <div style="background-color: #FFFFFF; border: 1px solid #E8E2D6; border-radius: 16px; padding: 2.25rem; box-shadow: var(--shadow-card); position: sticky; top: 110px;">
+            <div class="service-detail-sidebar-box">
               <h4 style="font-size: 1.35rem; margin-bottom: 1.25rem; font-family: var(--font-serif-heading);">Treatment Reservation</h4>
               
               <div style="margin-bottom: 1.25rem;">

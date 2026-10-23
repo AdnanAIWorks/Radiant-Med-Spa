@@ -145,8 +145,8 @@
   </section>
 
   <!-- Lightbox Modal with Keyboard & Prev/Next Navigation -->
-  <div id="gallery-modal" role="dialog" aria-modal="true" aria-label="Image Lightbox" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(18, 22, 20, 0.88); z-index: 999; align-items: center; justify-content: center; padding: 1.5rem; backdrop-filter: blur(8px);">
-    <div style="background: #FFFFFF; border-radius: 16px; max-width: 760px; width: 100%; overflow: hidden; position: relative; box-shadow: 0 25px 60px rgba(0,0,0,0.35);">
+  <div id="gallery-modal" role="dialog" aria-modal="true" aria-label="Image Lightbox" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(18, 22, 20, 0.88); z-index: 999; align-items: center; justify-content: center; padding: 1rem; backdrop-filter: blur(8px);">
+    <div class="gallery-modal-card">
       
       <!-- Close button -->
       <button id="gallery-modal-close" aria-label="Close modal (Esc)" style="position: absolute; top: 1rem; right: 1rem; background: #FAF7F2; border: 1px solid #E8E2D6; width: 36px; height: 36px; border-radius: 50%; font-size: 1.25rem; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 20; color: #1C221F;">&times;</button>
@@ -160,13 +160,13 @@
       </button>
 
       <!-- Image Area -->
-      <div style="height: 400px; background: #0E1210; overflow: hidden; position: relative;">
+      <div class="gallery-modal-img-container">
         <img id="gallery-modal-img" src="" alt="" style="width: 100%; height: 100%; object-fit: cover;">
         <div id="gallery-modal-counter" style="position: absolute; bottom: 12px; right: 14px; background: rgba(18, 22, 20, 0.75); color: #FAF7F2; font-size: 0.75rem; padding: 4px 10px; border-radius: 20px; letter-spacing: 0.05em;">Photo 1 of 8</div>
       </div>
 
       <!-- Info Area -->
-      <div style="padding: 1.75rem 2rem;">
+      <div class="gallery-modal-info-area">
         <div style="display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 0.5rem; flex-wrap: wrap;">
           <h3 id="gallery-modal-title" style="font-family: var(--font-serif-heading); font-size: 1.4rem; color: #1C221F; margin: 0;"></h3>
           <span id="gallery-modal-badge" class="badge badge-gold">Category</span>
@@ -175,7 +175,7 @@
         
         <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #F0ECE4; padding-top: 1.25rem; flex-wrap: wrap; gap: 1rem;">
           <div id="gallery-modal-treatment" style="font-size: 0.85rem; color: #758A78;"></div>
-          <div style="display: flex; gap: 0.75rem;">
+          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
             <a id="gallery-modal-detail-link" href="services.html" class="btn btn-secondary btn-sm">Explore Service &rarr;</a>
             <a id="gallery-modal-book-link" href="booking.html" class="btn btn-gold btn-sm">Inquire About This</a>
           </div>

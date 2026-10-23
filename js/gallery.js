@@ -333,6 +333,36 @@ function initGallery() {
     }
   });
 
+  // Touch swipe gesture support for mobile lightbox navigation
+  let touchStartX = 0;
+  let touchStartY = 0;
+
+  if (modal) {
+    modal.addEventListener('touchstart', (e) => {
+      if (e.changedTouches && e.changedTouches.length > 0) {
+        touchStartX = e.changedTouches[0].screenX;
+        touchStartY = e.changedTouches[0].screenY;
+      }
+    }, { passive: true });
+
+    modal.addEventListener('touchend', (e) => {
+      if (!e.changedTouches || e.changedTouches.length === 0) return;
+      const touchEndX = e.changedTouches[0].screenX;
+      const touchEndY = e.changedTouches[0].screenY;
+      const diffX = touchEndX - touchStartX;
+      const diffY = touchEndY - touchStartY;
+
+      // Only trigger if horizontal swipe is prominent and exceeds threshold
+      if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 45) {
+        if (diffX < 0) {
+          nextPhoto(); // swipe left -> next
+        } else {
+          prevPhoto(); // swipe right -> previous
+        }
+      }
+    }, { passive: true });
+  }
+
   renderGallery('all');
 }
 

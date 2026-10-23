@@ -307,10 +307,10 @@ function initBookingFunnel() {
         This inquiry is <strong>not a confirmed appointment</strong>. Our clinic coordinator will contact you via <strong>${payload.contactMethod}</strong> within 2 business hours to review treatment suitability, answer clinical questions, and confirm calendar scheduling.
       </div>
 
-      <div style="background: #FFFFFF; padding: 2rem; border-radius: 12px; border: 1px solid #E8E2D6; box-shadow: var(--shadow-subtle); margin-bottom: 2rem;">
+      <div class="responsive-card-padding" style="background: #FFFFFF; border-radius: 12px; border: 1px solid #E8E2D6; box-shadow: var(--shadow-subtle); margin-bottom: 2rem;">
         <h4 style="font-family: var(--font-serif-heading); font-size: 1.25rem; margin-bottom: 1.25rem; color: #1C221F; border-bottom: 1px solid #F0ECE4; padding-bottom: 0.75rem;">Inquiry Summary Details</h4>
         
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; font-size: 0.925rem;">
+        <div class="responsive-grid-2" style="gap: 1.25rem; font-size: 0.925rem;">
           <div>
             <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: #808A85; display: block;">Patient</span>
             <strong style="color: #1C221F;">${payload.fullName}</strong> (${payload.clientStatus})
@@ -327,11 +327,11 @@ function initBookingFunnel() {
             <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: #808A85; display: block;">Time Window</span>
             <strong style="color: #1C221F;">${payload.timeWindow}</strong>
           </div>
-          <div style="grid-column: span 2;">
+          <div style="grid-column: 1 / -1;">
             <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: #808A85; display: block;">Contact Method</span>
             <span>${payload.contactMethod}: ${payload.phone} &bull; ${payload.email}</span>
           </div>
-          <div style="grid-column: span 2;">
+          <div style="grid-column: 1 / -1;">
             <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: #808A85; display: block;">Clinic Location</span>
             <span>2400 Westheimer Rd, Suite 180, Houston, TX 77098 (River Oaks)</span>
           </div>

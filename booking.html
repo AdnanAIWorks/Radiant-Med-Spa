@@ -141,7 +141,7 @@
       </div>
 
       <!-- Booking Card Form -->
-      <div style="background: #FFFFFF; border-radius: 16px; border: 1px solid #E8E2D6; padding: 2.75rem; box-shadow: var(--shadow-card);">
+      <div class="responsive-card-padding" style="background: #FFFFFF; border-radius: 16px; border: 1px solid #E8E2D6; box-shadow: var(--shadow-card);">
         <form id="booking-form" onsubmit="return false;">
           <!-- Anti-spam Honeypot Field -->
           <input type="text" name="hp_field" id="booking-hp" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
@@ -171,7 +171,7 @@
               <strong>New to Radiant?</strong> Every new guest treatment includes a 15-minute digital skin analysis with our medical aesthetician to ensure the treatment is clinically suitable for your skin type.
             </div>
 
-            <div style="display: flex; justify-content: flex-end; margin-top: 2rem;">
+            <div class="btn-stack-mobile" style="justify-content: flex-end; margin-top: 2rem;">
               <button type="button" class="btn btn-gold btn-lg" data-next-step="2">
                 Continue to Schedule &rarr;
               </button>
@@ -192,7 +192,7 @@
 
             <div class="form-group">
               <label class="form-label">Preferred Time Window</label>
-              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 0.5rem;">
+              <div class="booking-time-grid">
                 <label style="border: 1px solid #E8E2D6; border-radius: 8px; padding: 1rem; text-align: center; cursor: pointer; display: flex; flex-direction: column; gap: 0.35rem;">
                   <input type="radio" name="time-slot" value="Morning (9:00 AM – 12:00 PM)" checked>
                   <span style="font-weight: 600; font-size: 0.9rem;">Morning</span>
@@ -221,7 +221,7 @@
               </select>
             </div>
 
-            <div style="display: flex; justify-content: space-between; margin-top: 2.5rem;">
+            <div class="btn-stack-mobile" style="justify-content: space-between; margin-top: 2.5rem;">
               <button type="button" class="btn btn-secondary" data-prev-step="1">&larr; Back</button>
               <button type="button" class="btn btn-gold btn-lg" data-next-step="3">Continue to Details &rarr;</button>
             </div>
@@ -234,7 +234,7 @@
               Our concierge team uses this to confirm your appointment window.
             </p>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;">
+            <div class="responsive-form-row">
               <div class="form-group">
                 <label for="client-name" class="form-label">Full Name *</label>
                 <input type="text" id="client-name" class="form-control" placeholder="e.g. Eleanor Vance" required>
@@ -245,7 +245,7 @@
               </div>
             </div>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;">
+            <div class="responsive-form-row">
               <div class="form-group">
                 <label for="client-email" class="form-label">Email Address *</label>
                 <input type="email" id="client-email" class="form-control" placeholder="e.g. eleanor@example.com" required>
@@ -262,7 +262,7 @@
 
             <div class="form-group" style="margin-bottom: 1.5rem;">
               <label class="form-label">Client Status *</label>
-              <div style="display: flex; gap: 2rem; margin-top: 0.25rem;">
+              <div style="display: flex; gap: 1.25rem; margin-top: 0.25rem; flex-wrap: wrap;">
                 <label style="display: inline-flex; align-items: center; gap: 0.5rem; cursor: pointer; font-size: 0.9rem;">
                   <input type="radio" name="client-status" value="New Client" checked>
                   <span>New Client (First Visit to Radiant)</span>
@@ -281,7 +281,7 @@
 
             <!-- Mandatory Consent Checkbox -->
             <label style="display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.85rem; color: #59635E; margin: 1.75rem 0; cursor: pointer; background: #FAF7F2; padding: 1rem 1.25rem; border-radius: 8px; border: 1px solid #E8E2D6;">
-              <input type="checkbox" id="privacy-consent" required style="margin-top: 3px; cursor: pointer;">
+              <input type="checkbox" id="privacy-consent" required style="margin-top: 3px; cursor: pointer; min-width: 18px; min-height: 18px;">
               <span>
                 <strong>Appointment Inquiry Acknowledgement:</strong> I understand that submitting this form constitutes an <em>inquiry request</em>, not a confirmed reservation. The clinic will contact me to confirm availability and suitability. I consent to Radiant Med Spa’s <a href="privacy.html" target="_blank" style="color: #C0A16B; text-decoration: underline;">Privacy Policy</a>.
               </span>
@@ -289,7 +289,7 @@
 
             <div id="booking-error-msg" style="display: none; background: #FDE8E8; color: #9B1C1C; padding: 0.85rem 1.25rem; border-radius: 8px; margin-bottom: 1.25rem; font-size: 0.875rem;"></div>
 
-            <div style="display: flex; justify-content: space-between; margin-top: 1.5rem;">
+            <div class="btn-stack-mobile" style="justify-content: space-between; margin-top: 1.5rem;">
               <button type="button" class="btn btn-secondary" data-prev-step="2">&larr; Back</button>
               <button type="button" id="submit-inquiry-btn" class="btn btn-gold btn-lg" data-next-step="4">
                 <span id="btn-submit-text">Submit Reservation Inquiry &rarr;</span>
@@ -304,7 +304,7 @@
               <!-- Rendered dynamically by js/booking.js -->
             </div>
 
-            <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 2rem;">
+            <div class="btn-stack-mobile" style="gap: 1rem; justify-content: center; margin-top: 2rem;">
               <a href="index.html" class="btn btn-secondary">Return to Home</a>
               <a href="services.html" class="btn btn-gold">Explore More Services</a>
             </div>
