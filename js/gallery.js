@@ -97,7 +97,7 @@ const GALLERY_ITEMS = [
     category: 'facials',
     categoryLabel: 'Facials',
     description: 'Immediate skin clarity, pore purification, and luminous glow following patented vortex suction and serum saturation.',
-    image: 'assets/images/hero-facial.jpg',
+    image: 'assets/images/treatments/hydrafacial.jpg',
     treatment: 'Deluxe HydraFacial™',
     provider: 'Claire Deveraux, LMA',
     serviceId: 'hydrafacial-deluxe'
@@ -108,7 +108,7 @@ const GALLERY_ITEMS = [
     category: 'facials',
     categoryLabel: 'Facials',
     description: 'Ultra-gentle surgical blade exfoliation removing fine vellus hair (peach fuzz) and dull surface corneocytes for glass-skin texture.',
-    image: 'assets/images/hero-facial.jpg',
+    image: 'assets/images/treatments/dermaplaning.jpg',
     treatment: 'Precision Dermaplaning',
     provider: 'Claire Deveraux, LMA',
     serviceId: 'dermaplaning'
@@ -199,9 +199,9 @@ function initGallery() {
     activeList = getFilteredItems(cat);
 
     grid.innerHTML = activeList.map((item, idx) => `
-      <div class="gallery-item" data-index="${idx}" style="background: #FFFFFF; border-radius: 12px; overflow: hidden; border: 1px solid #E8E2D6; cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-        <div style="height: 260px; overflow: hidden; position: relative;">
-          <img src="${item.image}" alt="${item.title}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
+      <div class="gallery-item stagger-item-3d tilt-card-3d is-revealed" data-index="${idx}">
+        <div class="gallery-item-img-wrap">
+          <img src="${item.image}" alt="${item.title}" loading="lazy">
           <span class="badge badge-gold" style="position: absolute; top: 12px; left: 12px;">${item.categoryLabel}</span>
         </div>
         <div style="padding: 1.25rem;">
@@ -220,16 +220,11 @@ function initGallery() {
         const idx = parseInt(card.dataset.index);
         openModal(idx);
       });
-
-      card.addEventListener('mouseenter', () => {
-        card.style.transform = 'translateY(-4px)';
-        card.style.boxShadow = '0 12px 30px rgba(0,0,0,0.08)';
-      });
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = 'translateY(0)';
-        card.style.boxShadow = 'none';
-      });
     });
+
+    if (window.init3DTiltEffects) {
+      window.init3DTiltEffects();
+    }
   }
 
   function updateModalContent(idx) {

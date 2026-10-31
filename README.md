@@ -267,6 +267,26 @@ bookingIntegration: {
 }
 ```
 
+### ElevenLabs AI Voice Receptionist Configuration
+
+To connect your live ElevenLabs voice agent:
+1. Log into your [ElevenLabs Dashboard](https://elevenlabs.io/) and navigate to **Conversational AI**.
+2. Select or create your agent (e.g. *Radiant AI Assistant*).
+3. Copy your unique **Agent ID** from the agent settings page.
+4. Open [`js/clinic-config.js`](file:///e:/Med%20Spa%20Website/js/clinic-config.js) and paste your Agent ID:
+```javascript
+aiReceptionist: {
+  enabled: true,
+  agentId: "YOUR_ELEVENLABS_AGENT_ID", // <-- Replace with your real Agent ID
+  agentName: "Radiant AI Assistant",
+  statusText: "Online & Ready",
+  suggestedQuestion: "What treatments do you offer?",
+  orbColor1: "#C0A16B",
+  orbColor2: "#E5C29F"
+}
+```
+5. Save the file. The homepage hero card will instantly connect to your live voice model!
+
 1. **`demo_mock` (Default)**:
    - Client inquiries validate against phone/email/service rules and return a simulated reference receipt (`RMS-XXXXXX`).
    - The confirmation receipt displays a transparent notice: *"This simulated inquiry was saved for demonstration. To confirm your real appointment, call (713) 555-0198."*

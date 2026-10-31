@@ -11,6 +11,26 @@ const CLINIC_CONFIG = {
   clinicName: "Radiant Med Spa",
   tagline: "Look Better. Feel Confident. Be Radiant.",
   shortDescription: "Personalized aesthetic treatments and clinical skincare experiences designed thoughtfully around your beauty goals in Houston, Texas.",
+
+  // ElevenLabs Conversational AI Voice Receptionist Settings
+  aiReceptionist: {
+    enabled: true,
+    // =========================================================================
+    // ELEVENLABS AGENT ID CONFIGURATION
+    // Enter your ElevenLabs Agent ID here (copied from ElevenLabs Dashboard ->
+    // Conversational AI -> Your Agent -> Agent ID).
+    // Example: "agent_401k9abc123xyz"
+    // =========================================================================
+    agentId: "agent_3701m5qszq25e77vgdx2y12d4kz1",
+    agentName: "Radiant AI Assistant",
+    statusText: "Live Voice Active",
+    suggestedQuestion: "What treatments do you offer?",
+    orbColor1: "#C0A16B", // Radiant Gold
+    orbColor2: "#E5C29F", // Champagne Blush
+    actionText: "Speak with Receptionist",
+    startCallText: "Start Voice Demo",
+    endCallText: "End Conversation"
+  },
   
   // Houston Location & Contact Placeholders
   location: {

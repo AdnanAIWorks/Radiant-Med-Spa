@@ -8,6 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initAnnouncementBar();
   initMobileDrawer();
   initToastSystem();
+  init3DScrollAnimations();
+  init3DTiltEffects();
+  initHeroParallax();
 });
 
 // 1. Sticky Header Scroll Effect
@@ -156,3 +159,100 @@ function showToast(message, type = 'success') {
 }
 
 window.showToast = showToast;
+
+// 5. 3D Scroll-Driven Perspective Reveal Animations
+function init3DScrollAnimations() {
+  const elements = document.querySelectorAll('.reveal-3d, .stagger-item-3d');
+  if (!elements.length) return;
+
+  // Immediately show if user prefers reduced motion or if IntersectionObserver not supported
+  if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    elements.forEach(el => el.classList.add('is-revealed'));
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-revealed');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -30px 0px'
+  });
+
+  elements.forEach(el => observer.observe(el));
+}
+window.init3DScrollAnimations = init3DScrollAnimations;
+
+// 6. Interactive 3D Perspective Tilt on Cards (Desktop Only)
+function init3DTiltEffects() {
+  // Only enable on desktop pointer devices with hover capability
+  if (!window.matchMedia('(min-width: 1025px) and (hover: hover)').matches) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const tiltCards = document.querySelectorAll('.tilt-card-3d, .gallery-item');
+  tiltCards.forEach(card => {
+    if (card.dataset.tiltInitialized) return;
+    card.dataset.tiltInitialized = 'true';
+
+    let bounds;
+
+    const onMouseEnter = () => {
+      bounds = card.getBoundingClientRect();
+    };
+
+    const onMouseMove = (e) => {
+      if (!bounds) bounds = card.getBoundingClientRect();
+      const mouseX = e.clientX - bounds.left;
+      const mouseY = e.clientY - bounds.top;
+      const xPct = mouseX / bounds.width - 0.5;
+      const yPct = mouseY / bounds.height - 0.5;
+
+      const rotateY = xPct * 8; // subtle max 4 deg each side
+      const rotateX = -yPct * 8;
+
+      card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-8px) translateZ(8px)`;
+    };
+
+    const onMouseLeave = () => {
+      card.style.transform = '';
+      bounds = null;
+    };
+
+    card.addEventListener('mouseenter', onMouseEnter);
+    card.addEventListener('mousemove', onMouseMove);
+    card.addEventListener('mouseleave', onMouseLeave);
+  });
+}
+window.init3DTiltEffects = init3DTiltEffects;
+
+// 7. Hero Image 3D Parallax Tilt on Scroll
+function initHeroParallax() {
+  const heroCard = document.querySelector('.hero-image-card');
+  if (!heroCard || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (window.innerWidth <= 992) {
+      if (heroCard.style.transform) heroCard.style.transform = '';
+      return;
+    }
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        const scrolled = window.scrollY;
+        if (scrolled < 700) {
+          const rotY = -2 + (scrolled * 0.006);
+          const rotX = 1 - (scrolled * 0.005);
+          const transY = scrolled * 0.06;
+          heroCard.style.transform = `perspective(1000px) rotateY(${rotY.toFixed(2)}deg) rotateX(${rotX.toFixed(2)}deg) translateY(${transY.toFixed(1)}px)`;
+        }
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+}
+

@@ -106,17 +106,23 @@ function renderServiceDetail() {
       
       <div class="grid grid-3">
         ${relatedServices.map(r => `
-          <div class="service-card">
+          <div class="service-card tilt-card-3d">
             <div class="service-card-img" style="height: 200px;">
-              <img src="${r.image}" alt="${r.title}">
+              <img src="${r.image}" alt="${r.imageAlt || r.title}" loading="lazy">
               <span class="badge badge-gold service-card-badge">${r.categoryName}</span>
             </div>
             <div class="service-card-body">
               <h4 style="font-family: var(--font-serif-heading); font-size: 1.25rem; margin-bottom: 0.5rem;">${r.title}</h4>
-              <p style="font-size: 0.875rem; color: #59635E; margin-bottom: 1.25rem; line-height: 1.6;">${r.shortDesc.substring(0, 110)}...</p>
+              <p style="font-size: 0.875rem; color: #59635E; margin-bottom: 1rem; line-height: 1.6;">${r.shortDesc.substring(0, 110)}...</p>
+              ${r.aestheticPurpose ? `
+                <div class="service-card-purpose" style="margin-bottom: 1rem; font-size: 0.8rem;">
+                  <span class="service-card-purpose-label">Aesthetic Purpose</span>
+                  ${r.aestheticPurpose}
+                </div>
+              ` : ''}
               <div class="service-card-footer">
                 <a href="service-detail.html?id=${r.id}" class="service-card-link">Learn More &rarr;</a>
-                <a href="booking.html?service=${r.id}" class="btn btn-gold btn-sm">Book</a>
+                <a href="booking.html?service=${r.id}" class="btn btn-gold btn-sm">Book a Consultation</a>
               </div>
             </div>
           </div>
@@ -144,7 +150,15 @@ function renderServiceDetail() {
             <span class="badge badge-gold" style="margin-bottom: 1rem;">${service.categoryName}</span>
             <h1 style="font-size: clamp(2rem, 5.5vw, 3.6rem); margin-bottom: 0.75rem;">${service.title}</h1>
             <p style="font-size: 1.15rem; font-family: var(--font-serif-display); font-style: italic; color: #758A78; margin-bottom: 1.5rem;">${service.subtitle}</p>
-            <p class="text-lead" style="margin-bottom: 2rem;">${service.shortDesc}</p>
+            <p class="text-lead" style="margin-bottom: 1.5rem;">${service.shortDesc}</p>
+
+            <!-- Aesthetic Purpose Callout Box -->
+            ${service.aestheticPurpose ? `
+              <div class="service-card-purpose" style="margin-bottom: 2rem;">
+                <span class="service-card-purpose-label">Aesthetic Purpose & Intended Benefit</span>
+                ${service.aestheticPurpose}
+              </div>
+            ` : ''}
 
             <!-- Quick Metadata Pills -->
             <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 2.25rem; padding: 1.25rem 0; border-top: 1px solid #E8E2D6; border-bottom: 1px solid #E8E2D6;">
@@ -288,4 +302,8 @@ function renderServiceDetail() {
       </div>
     </div>
   `;
+
+  if (window.init3DTiltEffects) {
+    window.init3DTiltEffects();
+  }
 }
